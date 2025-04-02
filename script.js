@@ -1,75 +1,87 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const sections = document.querySelectorAll("section, .hero-content, .logo-container");
+// Mobile navigation toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-    const observer = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.2 } // Triggers when 20% of the element is visible
-    );
-
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+  hamburger.classList.toggle('open');
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Smooth Scrolling for Internal Links
-    document.querySelectorAll("a[href^='#']").forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 70, 
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
+// Scroll animations
+const revealElements = document.querySelectorAll('.feature-card, .highlight, .cta-banner');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('reveal');
+    }
+  });
+}, { threshold: 0.1 });
 
-    // Highlight Active Menu Item
-    const sections = document.querySelectorAll("section");
-    const navLinks = document.querySelectorAll("nav ul li a");
+revealElements.forEach(el => observer.observe(el));
 
-    window.addEventListener("scroll", () => {
-        let current = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            if (window.scrollY >= sectionTop) {
-                current = section.getAttribute("id");
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove("active");
-            if (link.getAttribute("href").includes(current)) {
-                link.classList.add("active");
-            }
-        });
-    });
+// Smooth scroll to anchors
+const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+smoothScrollLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 });
 
-document.addEventListener("scroll", function () {
-    const hero = document.querySelector(".hero");
-    let scrollPosition = window.scrollY;
-    hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Creates a smooth depth effect
+// Dynamic year in footer
+const yearSpan = document.createElement('span');
+yearSpan.textContent = new Date().getFullYear();
+document.querySelector('footer p')?.append(` © ${yearSpan.textContent}`);
+
+// Page load fade-in
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const navLinks = document.querySelectorAll("nav ul li a");
+// Delayed button pulse effect
+const pulseBtn = document.querySelector('.hero-btn');
+if (pulseBtn) {
+  setTimeout(() => {
+    pulseBtn.classList.add('pulse');
+  }, 1000);
+}
 
-    navLinks.forEach(link => {
-        link.addEventListener("click", function () {
-            // Remove active class from all links
-            navLinks.forEach(nav => nav.classList.remove("active"));
-            // Add active class to clicked link
-            this.classList.add("active");
-        });
-    });
+// Animate nav background on scroll
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 30) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
 });
+
+// Scroll progress indicator (optional)
+const progressBar = document.createElement('div');
+progressBar.className = 'scroll-progress';
+document.body.append(progressBar);
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = progress + '%';
+});
+
+// IntersectionObserver polyfill (if needed)
+if (!('IntersectionObserver' in window)) {
+  revealElements.forEach(el => el.classList.add('reveal'));
+}
+
+// Optional: Log when sections become visible
+observer.disconnect();
+revealElements.forEach(el => {
+  observer.observe(el);
+  console.log(`Watching: ${el.className}`);
+});
+
+// Easter egg console message
+console.log('%cBuilt with ♥ by Swiftstare Dev Team', 'color: #fff; background: #222; padding: 8px; font-size: 14px');

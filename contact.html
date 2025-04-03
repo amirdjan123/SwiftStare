@@ -3,19 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | OFM</title>
+  <title>Contact | Swiftstare</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>Contact Us</h1>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required /><br><br>
-      <input type="email" name="email" placeholder="Your Email" required /><br><br>
-      <textarea name="message" placeholder="Your Message" required></textarea><br><br>
-      <button type="submit" class="waitlist-btn">Send</button>
-    </form>
-    <a href="index.html" class="waitlist-btn">Back Home</a>
-  </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Swiftstare</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="https://forms.gle/YOUR_FORM_LINK" class="cta">Join Waitlist</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="hero-content">
+      <h1>Contact Us</h1>
+      <p>Have questions or ready to work with us? Drop us a message or shoot us an email — we're fast to reply.</p>
+      <a href="mailto:swiftstare@gmail.com" class="hero-btn">Email Now</a>
+      <button onclick="copyEmail()" class="hero-btn" style="margin-top: 1rem; background-color: #333; color: #fff;">Copy Email</button>
+      <p id="copy-message" style="margin-top: 1rem; color: #00ff88; display: none;">Email copied to clipboard ✅</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Swiftstare by OFM. All rights reserved.</p>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText('swiftstare@gmail.com').then(() => {
+        document.getElementById('copy-message').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('copy-message').style.display = 'none';
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>

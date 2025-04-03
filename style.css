@@ -216,3 +216,17 @@ footer {
     display: flex;
   }
 }
+.footer-content .socials {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.footer-content .socials svg {
+  transition: transform 0.2s ease, fill 0.3s ease;
+  cursor: pointer;
+}
+.footer-content .socials svg:hover {
+  transform: scale(1.15);
+  fill: #ccc;
+}

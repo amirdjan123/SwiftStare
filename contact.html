@@ -60,14 +60,28 @@
 
 
   <script>
-    function copyEmail() {
-      navigator.clipboard.writeText('swiftstare@gmail.com').then(() => {
-        document.getElementById('copy-message').style.display = 'block';
-        setTimeout(() => {
-          document.getElementById('copy-message').style.display = 'none';
-        }, 2000);
-      });
+  function copyEmail() {
+    const email = 'swiftstare@gmail.com';
+    const message = document.getElementById('copy-message');
+
+    // Fallback for older browsers
+    if (!navigator.clipboard) {
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    } else {
+      navigator.clipboard.writeText(email);
     }
-  </script>
+
+    message.style.display = 'block';
+    setTimeout(() => {
+      message.style.display = 'none';
+    }, 2000);
+  }
+</script>
+
 </body>
 </html>

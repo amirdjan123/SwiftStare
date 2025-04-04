@@ -7,7 +7,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #0e0e0e;
-  color: #f2f2f2;
+  color: #e0e0e0;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -36,7 +36,7 @@ ul {
   font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #fff;
+  color: #e0e0e0;
 }
 .nav-links {
   display: flex;
@@ -44,7 +44,7 @@ ul {
 }
 .nav-links li a {
   font-weight: 500;
-  color: #ccc;
+  color: #b3b3b3;
   transition: 0.3s;
 }
 .nav-links li a:hover {
@@ -71,7 +71,7 @@ ul {
 .hamburger span {
   height: 3px;
   width: 25px;
-  background: #fff;
+  background: #e0e0e0;
   margin-bottom: 4px;
   border-radius: 3px;
 }
@@ -89,13 +89,14 @@ ul {
 .hero-content h1 {
   font-size: 3.2rem;
   margin-bottom: 1rem;
+  color: #f2f2f2;
 }
 .hero-content p {
   font-size: 1.3rem;
   margin-bottom: 2rem;
   max-width: 600px;
   margin-inline: auto;
-  color: #bbb;
+  color: #b3b3b3;
 }
 .hero-btn {
   padding: 0.9rem 2rem;
@@ -122,6 +123,7 @@ ul {
 .features h2 {
   font-size: 2.4rem;
   margin-bottom: 2.5rem;
+  color: #e0e0e0;
 }
 .feature-grid {
   display: grid;
@@ -140,10 +142,10 @@ ul {
 }
 .feature-card h3 {
   margin-bottom: 1rem;
-  color: #fff;
+  color: #f0f0f0;
 }
 .feature-card p {
-  color: #aaa;
+  color: #bbbbbb;
 }
 
 /* Highlight */
@@ -155,12 +157,13 @@ ul {
 .highlight h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
+  color: #e0e0e0;
 }
 .highlight p {
   max-width: 700px;
   margin: auto;
   font-size: 1.15rem;
-  color: #bbb;
+  color: #b3b3b3;
 }
 
 /* CTA Banner */
@@ -172,6 +175,7 @@ ul {
 .cta-banner h2 {
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
+  color: #e0e0e0;
 }
 
 /* Footer */
@@ -180,6 +184,7 @@ footer {
   background: #111;
   text-align: center;
   font-size: 0.9rem;
+  color: #b3b3b3;
 }
 .footer-content {
   display: flex;
@@ -190,11 +195,25 @@ footer {
 .footer-content .socials a {
   margin: 0 10px;
   font-weight: bold;
-  color: #ccc;
+  color: #cccccc;
   transition: color 0.3s;
 }
 .footer-content .socials a:hover {
   color: #fff;
+}
+.footer-content .socials {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.footer-content .socials svg {
+  transition: transform 0.2s ease, fill 0.3s ease;
+  cursor: pointer;
+}
+.footer-content .socials svg:hover {
+  transform: scale(1.15);
+  fill: #ccc;
 }
 
 /* Responsive */
@@ -215,18 +234,4 @@ footer {
   .hamburger {
     display: flex;
   }
-}
-.footer-content .socials {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 1rem;
-}
-.footer-content .socials svg {
-  transition: transform 0.2s ease, fill 0.3s ease;
-  cursor: pointer;
-}
-.footer-content .socials svg:hover {
-  transform: scale(1.15);
-  fill: #ccc;
 }

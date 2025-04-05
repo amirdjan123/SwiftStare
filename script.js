@@ -85,3 +85,25 @@ revealElements.forEach(el => {
 
 // Easter egg console message
 console.log('%cBuilt with ♥ by Swiftstare Dev Team', 'color: #fff; background: #222; padding: 8px; font-size: 14px');
+
+// 💬 Contact Form Submit (Formspree - silent + message shown)
+const contactForm = document.getElementById("contact-form");
+const successMsg = document.getElementById("success-message");
+
+if (contactForm && successMsg) {
+  contactForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      successMsg.style.display = "block";
+      contactForm.reset();
+    }
+  });
+}

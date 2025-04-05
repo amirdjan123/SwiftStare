@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* === Base Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -19,13 +19,13 @@ ul {
   list-style: none;
 }
 
-/* Navbar */
+/* === Navbar === */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 3rem;
-  background: #121212;
+  background-color: #121212;
   position: fixed;
   top: 0;
   width: 100%;
@@ -35,8 +35,7 @@ ul {
 .logo {
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 2px;
-  color: #e0e0e0;
+  color: #fff;
 }
 .nav-links {
   display: flex;
@@ -45,7 +44,7 @@ ul {
 .nav-links li a {
   font-weight: 500;
   color: #b3b3b3;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 .nav-links li a:hover {
   color: #fff;
@@ -62,7 +61,6 @@ ul {
   background: #fff;
   transform: scale(1.05);
 }
-
 .hamburger {
   display: none;
   flex-direction: column;
@@ -72,31 +70,32 @@ ul {
   height: 3px;
   width: 25px;
   background: #e0e0e0;
-  margin-bottom: 4px;
+  margin: 4px 0;
   border-radius: 3px;
 }
 
-/* Hero */
+/* === Hero === */
 .hero {
   min-height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 0 2rem;
+  justify-content: center;
+  padding: 2rem;
   text-align: center;
   background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
 }
+.hero-content {
+  max-width: 700px;
+}
 .hero-content h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
   color: #f2f2f2;
 }
 .hero-content p {
   font-size: 1.3rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-inline: auto;
   color: #b3b3b3;
+  margin-bottom: 2rem;
 }
 .hero-btn {
   padding: 0.9rem 2rem;
@@ -107,44 +106,40 @@ ul {
   font-weight: bold;
   font-size: 1rem;
   transition: 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
 }
 .hero-btn:hover {
   background: #fff;
   transform: translateY(-2px);
 }
 
-/* Features */
+/* === Features Section === */
 .features {
-  padding: 5rem 2rem;
-  background: #151515;
+  padding: 6rem 2rem 4rem;
+  background-color: #151515;
   text-align: center;
 }
 .features h2 {
   font-size: 2.4rem;
   margin-bottom: 2.5rem;
-  color: #e0e0e0;
 }
 .feature-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem 1rem;
-  justify-items: center;
 }
 .feature-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.4s ease;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  cursor: default;
+  padding: 2rem;
   width: 100%;
   max-width: 340px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 .feature-card.reveal {
   opacity: 1;
@@ -155,21 +150,15 @@ ul {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
 .feature-card h3 {
+  color: #fff;
   margin-bottom: 1rem;
-  color: #f0f0f0;
 }
 .feature-card p {
-  color: #bbbbbb;
+  color: #bbb;
   min-height: 60px;
 }
 
-/* Center the last box if there's an odd number of items */
-.feature-grid > *:nth-last-child(1):nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-}
-
-/* Highlight */
+/* === Highlight Section === */
 .highlight {
   padding: 4rem 2rem;
   background: #0e0e0e;
@@ -178,16 +167,15 @@ ul {
 .highlight h2 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: #e0e0e0;
 }
 .highlight p {
-  max-width: 700px;
-  margin: auto;
   font-size: 1.15rem;
   color: #b3b3b3;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* CTA Banner */
+/* === CTA Banner === */
 .cta-banner {
   padding: 4rem 2rem;
   background: #181818;
@@ -196,53 +184,47 @@ ul {
 .cta-banner h2 {
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: #e0e0e0;
 }
 
-/* Footer */
+/* === Footer === */
 footer {
   padding: 2rem;
   background: #111;
   text-align: center;
   font-size: 0.9rem;
-  color: #b3b3b3;
 }
 .footer-content {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
+  gap: 1rem;
+}
+.footer-content .socials {
+  display: flex;
+  gap: 15px;
 }
 .footer-content .socials a {
-  margin: 0 10px;
-  font-weight: bold;
-  color: #cccccc;
+  color: #ccc;
   transition: color 0.3s;
 }
 .footer-content .socials a:hover {
   color: #fff;
 }
-.footer-content .socials {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 1rem;
-}
 .footer-content .socials svg {
-  transition: transform 0.2s ease, fill 0.3s ease;
   cursor: pointer;
+  transition: transform 0.2s ease, fill 0.3s ease;
 }
 .footer-content .socials svg:hover {
   transform: scale(1.15);
   fill: #ccc;
 }
 
-/* Copy Email Button */
+/* === Copy Email Button === */
 .copy-btn {
   background: #444;
   color: #fff;
-  border: none;
   padding: 0.6rem 1.2rem;
+  border: none;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
@@ -252,15 +234,15 @@ footer {
   background: #555;
 }
 
-/* Responsive */
+/* === Responsive Design === */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
-    flex-direction: column;
-    background: #1a1a1a;
     position: absolute;
     top: 100%;
     right: 0;
+    background: #1a1a1a;
+    flex-direction: column;
     width: 200px;
     padding: 1rem;
   }
@@ -271,8 +253,12 @@ footer {
     display: flex;
   }
 
-  /* Feature grid responsive */
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
   .feature-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: center;
   }
 }

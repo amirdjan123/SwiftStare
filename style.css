@@ -61,7 +61,7 @@ ul {
 .cta:hover {
   background: #fff;
   transform: scale(1.05);
-}
+ color: #000;}
 
 .hamburger {
   display: none;
@@ -112,7 +112,7 @@ ul {
 .hero-btn:hover {
   background: #fff;
   transform: translateY(-2px);
-}
+ color: #000;}
 
 /* Features */
 .features {

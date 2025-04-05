@@ -61,7 +61,7 @@ ul {
 .cta:hover {
   background: #fff;
   transform: scale(1.05);
- color: #000;}
+}
 
 .hamburger {
   display: none;
@@ -112,7 +112,7 @@ ul {
 .hero-btn:hover {
   background: #fff;
   transform: translateY(-2px);
- color: #000;}
+}
 
 /* Features */
 .features {
@@ -129,17 +129,35 @@ ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
+  justify-items: center;
 }
 .feature-card {
-  background: #1e1e1e;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.4s ease;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  cursor: default;
+}
+.feature-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
 }
 .feature-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
 }
+
+/* Center the last box if there's an odd number of items */
+.feature-grid > *:nth-last-child(1):nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
 .feature-card h3 {
   margin-bottom: 1rem;
   color: #f0f0f0;
@@ -214,6 +232,21 @@ footer {
 .footer-content .socials svg:hover {
   transform: scale(1.15);
   fill: #ccc;
+}
+
+/* Copy Email Button */
+.copy-btn {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.copy-btn:hover {
+  background: #555;
 }
 
 /* Responsive */

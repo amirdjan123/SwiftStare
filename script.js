@@ -31,17 +31,17 @@ smoothScrollLinks.forEach(link => {
   });
 });
 
-// Dynamic year in footer
+// Footer year
 const yearSpan = document.createElement('span');
 yearSpan.textContent = new Date().getFullYear();
 document.querySelector('footer p')?.append(` © ${yearSpan.textContent}`);
 
-// Page load fade-in
+// Page load fade
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
 
-// Delayed button pulse effect
+// Button pulse
 const pulseBtn = document.querySelector('.hero-btn');
 if (pulseBtn) {
   setTimeout(() => {
@@ -49,7 +49,7 @@ if (pulseBtn) {
   }, 1000);
 }
 
-// Animate nav background on scroll
+// Navbar scroll background
 window.addEventListener('scroll', () => {
   const navbar = document.querySelector('.navbar');
   if (window.scrollY > 30) {
@@ -59,7 +59,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Scroll progress indicator (optional)
+// Scroll progress
 const progressBar = document.createElement('div');
 progressBar.className = 'scroll-progress';
 document.body.append(progressBar);
@@ -71,22 +71,21 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = progress + '%';
 });
 
-// IntersectionObserver polyfill (if needed)
+// Fallback if IntersectionObserver not supported
 if (!('IntersectionObserver' in window)) {
   revealElements.forEach(el => el.classList.add('reveal'));
 }
 
-// Optional: Log when sections become visible
+// Log observed elements
 observer.disconnect();
 revealElements.forEach(el => {
   observer.observe(el);
   console.log(`Watching: ${el.className}`);
 });
 
-// Easter egg console message
 console.log('%cBuilt with ♥ by Swiftstare Dev Team', 'color: #fff; background: #222; padding: 8px; font-size: 14px');
 
-// 💬 Contact Form Submit (Formspree - silent + message shown)
+// ✅ FORM HANDLING (NO REDIRECT)
 const contactForm = document.getElementById("contact-form");
 const successMsg = document.getElementById("success-message");
 
@@ -98,12 +97,17 @@ if (contactForm && successMsg) {
     const response = await fetch(contactForm.action, {
       method: "POST",
       body: data,
-      headers: { 'Accept': 'application/json' }
+      headers: { Accept: "application/json" }
     });
 
     if (response.ok) {
       successMsg.style.display = "block";
       contactForm.reset();
+      setTimeout(() => {
+        successMsg.style.display = "none";
+      }, 5000);
+    } else {
+      alert("There was a problem submitting the form. Please try again.");
     }
   });
 }

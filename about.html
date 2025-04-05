@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,77 @@
   <title>About | Swiftstare</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+
+  <style>
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      animation: floatIn 0.8s ease forwards;
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      will-change: transform;
+      z-index: 1;
+      position: relative;
+    }
+
+    .feature-card:nth-child(1) { animation-delay: 0.2s; }
+    .feature-card:nth-child(2) { animation-delay: 0.4s; }
+    .feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+    .feature-card:hover {
+      transform: translateY(-350px);
+      box-shadow: 0 100px 120px rgba(255, 255, 255, 0.08), 0 120px 140px rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    @keyframes floatIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      animation: fadeDown 1s ease forwards;
+    }
+
+    .hero-content p {
+      animation: fadeUp 1.2s ease forwards;
+    }
+
+    .cta-banner {
+      animation: bounceIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      60% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -28,23 +100,23 @@
 
   <main class="hero about-page">
     <div class="hero-content">
-      <h1>About Swiftstare</h1>
-      <p>Swiftstare is a premium growth partner built for creators and digital entrepreneurs. We specialize in content strategy, personal brand building, and smart monetization — all delivered with precision, creativity, and style.</p>
+      <h1>About SwiftStare</h1>
+      <p>SwiftStare is a premium growth partner built for creators and digital entrepreneurs. We specialize in content strategy, personal brand building, and smart monetization — all delivered with precision, creativity, and style.</p>
     </div>
   </main>
 
   <section class="features">
     <h2>Who We Work With</h2>
     <div class="feature-grid">
-      <div class="feature-card">
+      <div class="feature-card reveal">
         <h3>New Creators</h3>
         <p>We help you find your aesthetic, build your brand voice, and launch the right way.</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal">
         <h3>Rising Influencers</h3>
         <p>Already have a fanbase? We'll help you scale your earnings and streamline your content.</p>
       </div>
-      <div class="feature-card">
+      <div class="feature-card reveal">
         <h3>Established Models</h3>
         <p>We bring professional strategy, brand partnerships, and full-service management.</p>
       </div>
@@ -58,7 +130,7 @@
 
 <footer>
   <div class="footer-content">
-    <p>&copy; 2025 Swiftstare. All rights reserved.</p>
+    <p>&copy; 2025 SwiftStare. All rights reserved.</p>
     <div class="socials">
       <a href="https://www.instagram.com/swiftstare/" target="_blank" aria-label="Instagram">
         <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">
@@ -78,5 +150,6 @@
   </div>
 </footer>
 
+</body>
 </body>
 </html>

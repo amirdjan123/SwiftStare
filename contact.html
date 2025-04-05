@@ -57,27 +57,17 @@
       color: #999;
     }
 
-    .hero-content h1 {
-      animation: fadeDown 1s ease forwards;
-    }
-
-    .hero-content p {
-      animation: fadeUp 1.2s ease forwards;
-    }
-
-    .cta-banner {
-      animation: bounceIn 1s ease-in-out forwards;
+    .success-message {
+      color: #00ff88;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+      display: none;
     }
 
     @keyframes floatIn {
-      0% {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
     }
 
     @keyframes fadeDown {
@@ -91,18 +81,14 @@
     }
 
     @keyframes bounceIn {
-      0% {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      60% {
-        transform: scale(1.05);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(0.9); opacity: 0; }
+      60% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); }
     }
+
+    .hero-content h1 { animation: fadeDown 1s ease forwards; }
+    .hero-content p { animation: fadeUp 1.2s ease forwards; }
+    .cta-banner { animation: bounceIn 1s ease-in-out forwards; }
   </style>
 </head>
 <body>
@@ -117,9 +103,7 @@
         <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSda28flJBiNUIGlFBQhCoPfn8uXnef8Gm1Fd8KsV1Ux65YgqQ/viewform?usp=dialog" class="cta">Join Waitlist</a></li>
       </ul>
       <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
     </nav>
   </header>
@@ -133,31 +117,32 @@
       <p id="copy-message" style="margin-top: 1rem; color: #00ff88; display: none;">Email copied to clipboard ✅</p>
 
       <!-- Contact Form -->
-      <form action="https://formspree.io/f/xdkewjvj" method="POST" class="contact-form">
+      <form action="https://formspree.io/f/xdkewjvj" method="POST" class="contact-form" id="contact-form">
         <input type="text" name="name" placeholder="Full Name" required autocomplete="name" />
         <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
         <input type="email" name="email" placeholder="Email Address" required autocomplete="email" />
         <textarea name="message" placeholder="Your Message" rows="6" required autocomplete="on"></textarea>
         <button type="submit" class="hero-btn" style="margin-top: 0.5rem;">Send Message</button>
       </form>
+      <p class="success-message" id="success-message">Message sent successfully ✅</p>
     </div>
   </main>
 
-  <!-- Feature Cards -->
+  <!-- Cards Section -->
   <section class="features">
     <h2>Get In Touch For</h2>
     <div class="feature-grid">
       <div class="feature-card reveal">
         <h3>General Inquiries</h3>
-        <p>Have questions about our services or how we operate? We’re happy to help.</p>
+        <p>Questions about our services or operations? We’re here to help.</p>
       </div>
       <div class="feature-card reveal">
         <h3>Collaboration</h3>
-        <p>Looking to team up with SwiftStare on a project or event? Let’s connect.</p>
+        <p>Let’s team up! We’re open to creative partnerships and events.</p>
       </div>
       <div class="feature-card reveal">
-        <h3>Technical Support</h3>
-        <p>Experiencing issues or need help with your account or submissions?</p>
+        <h3>Support</h3>
+        <p>Need help with your account or submission? Our team’s got your back.</p>
       </div>
     </div>
   </section>
@@ -168,18 +153,17 @@
       <div class="socials">
         <a href="https://www.instagram.com/swiftstare/" target="_blank" aria-label="Instagram">
           <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.25-.25a1 1 0 110 2 1 1 0 010-2z"/>
+            <path d="..."/>
           </svg>
         </a>
         <a href="https://www.tiktok.com/@swiftstare" target="_blank" aria-label="TikTok">
           <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M12 2c.6 0 1 .4 1 1v11.7c0 1.4-.9 2.6-2.2 3A3 3 0 017 14.9V14c0-.6.4-1 1-1s1 .4 1 1v.9c0 .6.4 1.1 1 1.1s1-.5 1-1.1V3c0-.6.4-1 1-1z"/>
-            <path d="M15 3c.6 0 1 .4 1 1 0 1.1.9 2 2 2 .6 0 1 .4 1 1s-.4 1-1 1c-2.2 0-4-1.8-4-4 0-.6.4-1 1-1z"/>
+            <path d="..."/>
           </svg>
         </a>
         <a href="https://x.com/swiftstareOF" target="_blank" aria-label="Twitter / X">
           <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24">
-            <path d="M20.98 3H2.999a1 1 0 00-1 1v16a1 1 0 001 1h17.98a1 1 0 001-1V4a1 1 0 00-1-1zm-4.52 13.29h-2.2l-3.01-4.1-2.24 2.38v1.72h-2.2V7.83h2.2v4.19l5.21-4.19h2.45l-3.92 3.12 3.91 5.14z"/>
+            <path d="..."/>
           </svg>
         </a>
       </div>
@@ -190,23 +174,9 @@
     function copyEmail() {
       const email = 'swiftstare@gmail.com';
       const message = document.getElementById('copy-message');
-
       if (!navigator.clipboard) {
         const tempInput = document.createElement('input');
         tempInput.value = email;
         document.body.appendChild(tempInput);
         tempInput.select();
-        document.execCommand('copy');
-        document.body.removeChild(tempInput);
-      } else {
-        navigator.clipboard.writeText(email);
-      }
-
-      message.style.display = 'block';
-      setTimeout(() => {
-        message.style.display = 'none';
-      }, 2000);
-    }
-  </script>
-</body>
-</html>
+        document.exec
